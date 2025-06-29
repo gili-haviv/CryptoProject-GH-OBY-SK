@@ -1,19 +1,34 @@
-async function fetchPrices() {
-  const url =
-    "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd";
+document.addEventListener("DOMContentLoaded", async () => {
+  const btcPriceEl = document.getElementById("btcPrice");
+  const ethPriceEl = document.getElementById("ethPrice");
+  const saveBtn = document.getElementById("saveBtn");
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd"
+    );
     const data = await res.json();
 
-    document.getElementById("btc").innerText = `Bitcoin: $${data.bitcoin.usd}`;
-    document.getElementById(
-      "eth"
-    ).innerText = `Ethereum: $${data.ethereum.usd}`;
-  } catch (error) {
-    document.getElementById("btc").innerText = "Error loading BTC";
-    document.getElementById("eth").innerText = "Error loading ETH";
+    btcPriceEl.textContent = `Bitcoin: $${data.bitcoin.usd.toLocaleString()}`;
+    ethPriceEl.textContent = `Ethereum: $${data.ethereum.usd.toLocaleString()}`;
+  } catch (err) {
+    btcPriceEl.textContent = "Failed to load Bitcoin price.";
+    ethPriceEl.textContent = "Failed to load Ethereum price.";
   }
-}
 
-fetchPrices();
+  saveBtn.addEventListener("click", () => {
+    const binance =
+      parseFloat(document.getElementById("binanceBtc").value) || 0;
+    const coinbase =
+      parseFloat(document.getElementById("coinbaseBtc").value) || 0;
+    const total = binance + coinbase;
+
+    document.getElementById(
+      "btcPlatformTotal"
+    ).textContent = `סך הכל BTC: ${total}`;
+    localStorage.setItem(
+      "btc_holdings",
+      JSON.stringify({ binance, coinbase, total })
+    );
+  });
+});

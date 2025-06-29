@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Crypto Manager</title>
-    <script defer src="popup.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Tracker Pro</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="popup.js" type="module"></script>
   </head>
   <body>
-    <h1>💰 Crypto Prices</h1>
-    <div id="btc">Bitcoin: Loading...</div>
-    <div id="eth">Ethereum: Loading...</div>
+    <div class="container">
+      <h1>💰 Crypto Dashboard</h1>
+      <section>
+        <h2>Live Prices</h2>
+        <div id="prices">
+          <div class="coin" id="btcPrice">Bitcoin: Loading...</div>
+          <div class="coin" id="ethPrice">Ethereum: Loading...</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>ההחזקות לפי פלטפורמות</h2>
+        <div class="platform-inputs">
+          <label for="binanceBtc">Binance BTC:</label>
+          <input type="number" id="binanceBtc" placeholder="כמה BTC בבינאנס?" />
+
+          <label for="coinbaseBtc">Coinbase BTC:</label>
+          <input
+            type="number"
+            id="coinbaseBtc"
+            placeholder="כמה BTC בקוינבייס?"
+          />
+
+          <button id="saveBtn">שמור</button>
+          <div id="btcPlatformTotal"></div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>

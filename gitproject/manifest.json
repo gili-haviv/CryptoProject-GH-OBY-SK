@@ -1,16 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Crypto Manager",
+  "name": "Crypto Tracker Pro",
   "version": "1.0",
-  "description": "Manage your Bitcoin and Ethereum in one place",
+  "description": "Extension to track crypto prices and personal holdings across platforms.",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icon.png"
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
     }
   },
-  "permissions": [],
-  "host_permissions": ["https://api.coingecko.com/*"]
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.coingecko.com/*"],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
 //ניסוי
 //אני רואה
