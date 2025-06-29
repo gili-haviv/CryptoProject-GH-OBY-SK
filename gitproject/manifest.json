@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Crypto Manager",
+  "version": "1.0",
+  "description": "Manage your Bitcoin and Ethereum in one place",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png"
+    }
+  },
+  "permissions": [],
+  "host_permissions": ["https://api.coingecko.com/*"]
+}

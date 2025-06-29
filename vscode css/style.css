@@ -1,0 +1,15 @@
+h1 {
+  color: brown;
+  text-align: center;
+  letter-spacing: 6;
+}
+h2 {
+  color: blueviolet;
+}
+p {
+  color: #228b22;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
