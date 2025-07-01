@@ -27,14 +27,35 @@ h2 {
   font-weight: bold;
 }
 
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
 input[type="number"] {
   padding: 8px;
   font-size: 14px;
   width: 100%;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.value-display {
+  font-size: 12px;
+  color: #666;
+  background-color: #f8f9fa;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+  font-weight: bold;
 }
 
 button {
@@ -43,16 +64,32 @@ button {
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-#btcPlatformTotal {
+#totalResult {
   margin-top: 10px;
   font-weight: bold;
   color: #2a2a2a;
+}
+
+#currentHoldings {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#holdingsChart {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
