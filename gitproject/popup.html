@@ -1,40 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crypto Tracker Pro</title>
+    <!-- טוען את Chart.js מקומית -->
+    <script src="chart.umd.js"></script>
+    <!-- וידוא שהחכניס נטען -->
+    <script>
+        console.log('Chart.js loaded:', typeof Chart !== 'undefined');
+        if (typeof Chart !== 'undefined') {
+            console.log('Chart version:', Chart.version);
+        }
+    </script>
+    <!-- טוען את הקבצים לפי הסדר הנכון -->
+    <script src="service.js"></script>
+    <script src="dao.js"></script>
+    <script src="popup.js"></script>
+    <!-- סגנונות עיצוב -->
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="popup.js" type="module"></script>
-  </head>
-  <body>
-    <div class="container">
-      <h1>💰 Crypto Dashboard</h1>
-      <section>
+</head>
+
+<body>
+<div class="container">
+    <h1>💰 Crypto Dashboard</h1>
+
+    <!-- תצוגת מחירים -->
+    <section>
         <h2>Live Prices</h2>
         <div id="prices">
-          <div class="coin" id="btcPrice">Bitcoin: Loading...</div>
-          <div class="coin" id="ethPrice">Ethereum: Loading...</div>
+            <div class="coin" id="btcPrice">Bitcoin: Loading...</div>
+            <div class="coin" id="ethPrice">Ethereum: Loading...</div>
         </div>
-      </section>
+    </section>
 
-      <section>
-        <h2>ההחזקות לפי פלטפורמות</h2>
-        <div class="platform-inputs">
-          <label for="binanceBtc">Binance BTC:</label>
-          <input type="number" id="binanceBtc" placeholder="כמה BTC בבינאנס?" />
+    <!-- הזנת כמויות -->
+    <section>
+        <h2>ניהול כמויות</h2>
 
-          <label for="coinbaseBtc">Coinbase BTC:</label>
-          <input
-            type="number"
-            id="coinbaseBtc"
-            placeholder="כמה BTC בקוינבייס?"
-          />
-
-          <button id="saveBtn">שמור</button>
-          <div id="btcPlatformTotal"></div>
+        <div class="input-group">
+            <label for="btcInput">BTC:</label>
+            <input type="number" id="btcInput" step="0.0001" placeholder="הכנס כמות BTC" />
+            <div id="btcValue" class="value-display">ערך: $0</div>
         </div>
-      </section>
-    </div>
-  </body>
+
+        <div class="input-group">
+            <label for="ethInput">ETH:</label>
+            <input type="number" id="ethInput" step="0.0001" placeholder="הכנס כמות ETH" />
+            <div id="ethValue" class="value-display">ערך: $0</div>
+        </div>
+
+        <div style="margin-top: 10px;">
+            <button id="addBtn">הוסף</button>
+            <button id="removeBtn">הסר</button>
+            <button id="totalBtn">הצג ערך כולל</button>
+            <button id="holdingsBtn">הצג גרף</button>
+        </div>
+
+        <div id="totalResult" style="margin-top: 10px; font-weight: bold;"></div>
+        <div id="currentHoldings" style="margin-top: 10px;"></div>
+        <canvas id="holdingsChart" style="margin-top: 20px; display: none; max-width: 280px; max-height: 280px;"></canvas>
+    </section>
+</div>
+</body>
 </html>
